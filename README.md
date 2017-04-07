@@ -1,5 +1,7 @@
 # Imprison
 
+[![Build Status](https://travis-ci.org/munky69rock/imprison.svg?branch=master)](https://travis-ci.org/munky69rock/imprison)
+
 Add UIID to Xcode plugins
 
 ## Installation
