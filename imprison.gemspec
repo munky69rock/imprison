@@ -9,8 +9,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Masayuki Uehara"]
   spec.email         = ["munky69rock@gmail.com"]
 
-  spec.summary       = %q{Add UIID to Xcode plugins}
-  spec.description   = %q{Add UIID to Xcoce plugins}
+  spec.summary       = %q{Add UUID to Xcode plugins}
+  spec.description   = %q{Add UUID to Xcoce plugins}
   spec.homepage      = "https://github.com/munky69rock/imprison"
   spec.license       = "MIT"
 

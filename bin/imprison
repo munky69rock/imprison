@@ -7,7 +7,7 @@ require 'optparse'
 
 options = {}
 OptionParser.new do |opts|
-  opts.banner = 'Usage: imprison [options] UIID'
+  opts.banner = 'Usage: imprison [options] UUID'
 
   opts.on('-d', '--dir DIR', String, 'Specify plugin direcotry') do |dir|
     options[:dir] = dir
@@ -17,4 +17,9 @@ OptionParser.new do |opts|
   end
 end.parse!
 
-Imprison.run(ARGV.first, options)
+begin
+  Imprison.run(ARGV.first, options)
+rescue => e
+  puts e
+  exit 1
+end

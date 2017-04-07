@@ -6,9 +6,9 @@ require 'plist'
 module Imprison
   PLUGIN_DIR = "#{ENV['HOME']}/Library/Application Support/Developer/Shared/Xcode/Plug-ins".freeze
 
-  def self.run(uiid, options = {})
-    raise 'no uiid specified.' if uiid.nil?
-    raise 'invalid uiid specified.' unless uiid[/^[0-9A-F]{8}\-[A-Z0-9]{4}\-[A-Z0-9]{4}\-[A-Z0-9]{4}\-[A-Z0-9]{12}$/]
+  def self.run(uuid, options = {})
+    raise 'no uuid specified.' if uuid.nil?
+    raise 'invalid uuid specified.' unless uuid[/^[0-9A-F]{8}\-[A-Z0-9]{4}\-[A-Z0-9]{4}\-[A-Z0-9]{4}\-[A-Z0-9]{12}$/]
 
     dir = options[:dir] || PLUGIN_DIR
     raise "#{dir} not found." unless File.exist?(dir)
@@ -16,9 +16,9 @@ module Imprison
     Find.find(dir) do |path|
       next unless path[/info\.plist$/i]
       result = Plist.parse_xml(path)
-      uiids = result['DVTPlugInCompatibilityUUIDs']
-      next if uiids.include?(uiid)
-      uiids.push(uiid)
+      uuids = result['DVTPlugInCompatibilityUUIDs']
+      next if uuids.include?(uuid)
+      uuids.push(uuid)
 
       unless options[:no_backup]
         FileUtils.cp path, "#{path}.#{Time.now.strftime('%Y%m%d_%H%M')}"
