@@ -8,7 +8,7 @@ module Imprison
 
   def self.run(uuid, options = {})
     raise 'no uuid specified.' if uuid.nil?
-    raise 'invalid uuid specified.' unless uuid[/^[0-9A-F]{8}\-[A-Z0-9]{4}\-[A-Z0-9]{4}\-[A-Z0-9]{4}\-[A-Z0-9]{12}$/]
+    raise 'invalid uuid specified.' unless uuid[/^[0-9A-F]{8}\-[0-9A-F]{4}\-[0-9A-F]{4}\-[0-9A-F]{4}\-[0-9A-F]{12}$/]
 
     dir = options[:dir] || PLUGIN_DIR
     raise "#{dir} not found." unless File.exist?(dir)
