@@ -9,8 +9,11 @@ options = {}
 OptionParser.new do |opts|
   opts.banner = 'Usage: imprison [options] UUID'
 
-  opts.on('-d', '--dir DIR', String, 'Specify plugin direcotry') do |dir|
-    options[:dir] = dir
+  opts.on('-p', '--plugin_dir DIR', String, 'Specify plugin direcotry') do |dir|
+    options[:plugin_dir] = dir
+  end
+  opts.on('-x', '--xcode_dir DIR', String, 'Specify Xcode direcotry') do |dir|
+    options[:xcode_dir] = dir
   end
   opts.on('--no-backup', 'Do not create backup file') do |no_backup|
     options[:no_backup] = no_backup
