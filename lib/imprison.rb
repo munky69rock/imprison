@@ -9,9 +9,8 @@ module Imprison
 
   def self.run(uuid, options = {})
     if uuid.nil?
-      info_plist = xcode_info(options[:xcode_dir] || XCODE_DIR)
-      raise 'no uuid specified.' if info_plist.nil?
-      uuid = current_uuid(info_plist)
+      uuid = current_uuid(options[:xcode_dir] || XCODE_DIR)
+      raise 'no uuid specified.' if uuid.nil?
       puts "Use current uuid: '#{uuid}'"
     end
 
@@ -39,12 +38,9 @@ module Imprison
 
   private
 
-  def self.xcode_info(xcode_dir)
+  def self.current_uuid(xcode_dir)
     info_plist = "#{xcode_dir}/Contents/Info.plist"
-    info_plist if File.exist?(info_plist) 
-  end
-
-  def self.current_uuid(info_plist)
+    return nil if !File.exist?(info_plist) 
     `defaults read #{info_plist} DVTPlugInCompatibilityUUID`.chomp
   end
 end

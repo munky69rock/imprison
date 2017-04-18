@@ -15,7 +15,7 @@ describe Imprison do
       context 'no uuid' do
         let(:uuid) { nil }
         before do
-          allow(Imprison).to receive(:xcode_info).and_return nil
+          allow(Imprison).to receive(:current_uuid).and_return nil
         end
 
         it { expect { Imprison.run(uuid) }.to raise_error(/no uuid/) }
