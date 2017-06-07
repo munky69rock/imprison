@@ -14,7 +14,8 @@ $ gem specific_install -l https://github.com/munky69rock/imprison.git
 ## Usage
 
 ```sh
-$ imprison UUID
+$ imprison # append current uuid
+$ imprison UUID # specify uuid
 ```
 
 ## Development
@@ -31,4 +32,3 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/[USERN
 ## License
 
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
-
